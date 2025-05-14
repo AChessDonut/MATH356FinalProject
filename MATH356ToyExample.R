@@ -1,3 +1,6 @@
+##Uses LLE through numeric stats (Yds, TD, QBR...), local neighborhoods, and 2D spaces (Dim1/Dim2)
+## Output has each QB positioned based on statistical similarity patterns.
+##
 library(readr)
 library(dplyr)
 # Create the composite scores FIRST
@@ -110,7 +113,8 @@ ggplot(lle_df, aes(Dim1, Dim2)) +
   labs(title = "QB Similarity (LLE) vs. Effectiveness (Composite Score)")
 
 
-
+## Bar chart does not use LLE, but usage for aggregation of stats (QBR*0.3 + TD*0.3 + Yds*0.2 + ...).
+##
 #######################################################
 # qb_rankings <- qbr_data %>%
 #  select(Player, Yds, TD, `Cmp%`, QBR, Rate) %>%
